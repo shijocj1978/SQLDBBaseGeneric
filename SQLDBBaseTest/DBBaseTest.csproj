@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09FCB319-91D2-4CA7-A286-6182DAD358B5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SQLDBBaseGeneric</RootNamespace>
+    <AssemblyName>SQLDBBaseGeneric</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Oracle.DataAccess">
+      <HintPath>..\Oracle.DataAccess.Client.OracleDBBase\bin\Debug\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OracleDBTest.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLServerDBTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBBase\DBBase.csproj">
+      <Project>{e8524427-9adb-4127-b49a-42cd2a073d97}</Project>
+      <Name>DBBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Oracle.DataAccess.Client.OracleDBBase\Oracle.DataAccess.Client.OracleDBBase.csproj">
+      <Project>{c588d3ba-6ba6-47a4-876d-9262a2c70baa}</Project>
+      <Name>Oracle.DataAccess.Client.OracleDBBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Data.SqlClient.SQLDBBase\System.Data.SqlClient.SQLDBBase.csproj">
+      <Project>{ad04979b-b256-4859-b710-b1de1d9cdb9c}</Project>
+      <Name>System.Data.SqlClient.SQLDBBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Diagnostics.Logging\System.Diagnostics.Logging.csproj">
+      <Project>{6281c154-8147-4f85-b949-0f7d987a01c6}</Project>
+      <Name>System.Diagnostics.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

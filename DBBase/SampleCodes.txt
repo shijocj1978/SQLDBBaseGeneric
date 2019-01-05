@@ -1,0 +1,23 @@
+﻿/*Code to serialise and deserilize a cmd paramater object.*/
+
+private static readonly Dictionary<string, SqlParameter[]> ParameterCache;
+ 
+// retrieve from cache
+if (ParameterCache.ContainsKey(cmd.CommandText))
+{
+    var paramCollection = ParameterCache[cmd.CommandText];
+    cmd.Parameters.AddRange(
+        paramCollection.OfType<SqlParameter>()
+            .Select(x => ((ICloneable)x).Clone() as SqlParameter)
+            .ToArray()
+        );
+    return;
+}
+ 
+// add to cache
+var parameters = cmd.Parameters
+    .OfType<SqlParameter>()
+    .Select(x => ((ICloneable)x).Clone() as SqlParameter)
+    .ToArray();
+ParameterCache.Add(cmd.CommandText, parameters);
+
